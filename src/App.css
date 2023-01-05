@@ -1,1 +1,22 @@
- 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  --type-first: Arial, Helvetica, sans-serif;
+  font-family: var(--type-first);
+  font-size: 1.3rem;
+  background: rgb(127, 127, 250);
+  color: white;
+}
+button {
+  background: blue;
+  width: 10rem;
+  border: none;
+  border-radius: 2rem;
+  transition: 0.3s;
+}
+button:hover {
+  background-color: rgb(69, 69, 250);
+}
