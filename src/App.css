@@ -6,8 +6,9 @@
 body {
   --type-first: Arial, Helvetica, sans-serif;
   font-family: var(--type-first);
+  margin: 1rem;
   font-size: 1.3rem;
-  background: rgb(127, 127, 250);
+  background: rgb(157, 157, 250);
   color: white;
 }
 button {
@@ -17,6 +18,7 @@ button {
   border-radius: 2rem;
   transition: 0.3s;
 }
+
 button:hover {
   background-color: rgb(69, 69, 250);
 }
