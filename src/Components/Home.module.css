@@ -20,8 +20,10 @@ h1 {
 .form {
   border-radius: 0.5rem;
   margin-top: 3rem;
-
   background: white;
+}
+.inputs {
+  padding: 1rem;
 }
 span {
   font-style: italic;
