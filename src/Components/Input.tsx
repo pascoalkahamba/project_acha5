@@ -1,14 +1,43 @@
 import { Form } from "../MyStyles";
-type Parameters = {
-  title: string;
-  label: string;
-};
 
-const Input = ({ title, label }: Parameters) => {
+type Parameters = {
+  setValue: Function;
+  value: {
+    jogador1: string;
+    jogador2: string;
+  };
+};
+interface InputType {
+  target: HTMLInputElement;
+}
+const Input = ({ value, setValue }: Parameters) => {
+  const handleChange = ({ target }: InputType) => {
+    setValue({ ...value, [target.id]: target.value });
+  };
   return (
     <Form>
-      <label htmlFor="name">{label}</label>
-      <input type="text" placeholder={title} id="name" />
+      <div>
+        <label htmlFor="jogador1">Palavra do Jogador 1: </label>
+        <input
+          type="text"
+          maxLength={5}
+          value={value.jogador1}
+          placeholder="  Jogador 1"
+          id="jogador1"
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <label htmlFor="jogador2">Palavra do Jogador 2: </label>
+        <input
+          type="text"
+          maxLength={5}
+          value={value.jogador2}
+          placeholder="  Jogador 2"
+          id="jogador2"
+          onChange={handleChange}
+        />
+      </div>
     </Form>
   );
 };

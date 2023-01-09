@@ -35,8 +35,8 @@ export const GeneralButton = styled.button`
 
 export const Form = styled.form`
   display: flex;
+  flex-direction: column;
   gap: 1.5rem;
-  align-items: center;
   margin-bottom: 2rem;
 
   label {

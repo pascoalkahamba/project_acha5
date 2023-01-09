@@ -1,8 +1,13 @@
 import Button from "./Button";
 import Input from "./Input";
 import { Section } from "../StylesHome";
+import { useState } from "react";
 
 const Home = () => {
+  const [value, setValue] = useState({ jogador1: "", jogador2: "" });
+  const validate = () => {
+    console.log(value);
+  };
   return (
     <Section>
       <div className="content">
@@ -29,9 +34,9 @@ const Home = () => {
       <div className="form">
         <h1 className="center">Acha-5</h1>
         <div className="inputs">
-          <Input title="Palavra do Jogador 1" label="Palavra do Jogador 1: " />
-          <Input title="Palavra do Jogador 2" label="Palavra do Jogador 2: " />
-          <Button buttonName="Começar o jogo" />
+          <Input value={value} setValue={setValue} />
+
+          <Button onClick={() => validate()} buttonName="Começar o jogo" />
         </div>
       </div>
     </Section>
