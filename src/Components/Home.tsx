@@ -1,14 +1,13 @@
-import React from "react";
 import Button from "./Button";
-import styles from "./Home.module.css";
-import NormaInputl from "./NormaInputl";
+import Input from "./Input";
+import { Section } from "../StylesHome";
 
 const Home = () => {
   return (
-    <section className={styles.container}>
-      <div className={styles.content}>
+    <Section>
+      <div className="content">
         <h1>Exercicío Acha-5</h1>
-        <div className={styles.message}>
+        <div className="message">
           <span>6.5.3 </span> Dois jogadores, cada um pensa uma palavra de 5
           letras diferentes, sem acentos. Um tenta adivinhar primeiro a palavra
           que o outro escolheu. Alternadamente, cada um submete ao outro uma
@@ -27,21 +26,15 @@ const Home = () => {
           computador sorteie a sua palavra secreta
         </div>
       </div>
-      <div className={styles.form}>
-        <h1 className={styles.center}>Acha-5</h1>
-        <div className={styles.inputs}>
-          <NormaInputl
-            title="Palavra do Jogador 1"
-            label="Palavra do Jogador 1: "
-          />
-          <NormaInputl
-            title="Palavra do Jogador 2"
-            label="Palavra do Jogador 2: "
-          />
+      <div className="form">
+        <h1 className="center">Acha-5</h1>
+        <div className="inputs">
+          <Input title="Palavra do Jogador 1" label="Palavra do Jogador 1: " />
+          <Input title="Palavra do Jogador 2" label="Palavra do Jogador 2: " />
           <Button buttonName="Começar o jogo" />
         </div>
       </div>
-    </section>
+    </Section>
   );
 };
 

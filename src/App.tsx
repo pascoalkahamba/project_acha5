@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router";
 import { BrowserRouter } from "react-router-dom";
-import "./App.css";
 import Home from "./Components/Home";
 import { GlobalStyle } from "./MyStyles";
 

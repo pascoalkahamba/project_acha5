@@ -32,15 +32,24 @@ export const GeneralButton = styled.button`
     background-color: rgb(0, 0, 116);
   }
 `;
-export const Input = styled.input`
+
+export const Form = styled.form`
   display: flex;
   gap: 1.5rem;
   align-items: center;
   margin-bottom: 2rem;
 
-  width: 10rem;
-  border: 1px #ccc solid;
-  outline: none;
-  padding: 1rem;
-  border-radius: 0.5rem;
+  label {
+    color: blue;
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
+
+  input {
+    width: 10rem;
+    border: 1px #ccc solid;
+    outline: none;
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
 `;
