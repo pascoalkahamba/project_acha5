@@ -2,12 +2,29 @@ import Button from "./Button";
 import Input from "./Input";
 import { Section } from "../StylesHome";
 import { useState } from "react";
+import { DivError } from "../StylesHome";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [value, setValue] = useState({ jogador1: "", jogador2: "" });
+  const [error, SetError] = useState(false);
+  const navigate = useNavigate();
   const validate = () => {
-    console.log(value);
+    let message = "";
+    if (value.jogador1 === "" || value.jogador1.length < 5) {
+      message = "Digite o valor do jogador 1\n";
+    }
+
+    if (value.jogador2 === "" || value.jogador2.length < 5) {
+      message += "Digite o valor do jogador 2";
+    }
+    if (message !== "") {
+      SetError(true);
+      return false;
+    }
+    navigate("/test");
   };
+
   return (
     <Section>
       <div className="content">
@@ -35,7 +52,12 @@ const Home = () => {
         <h1 className="center">Acha-5</h1>
         <div className="inputs">
           <Input value={value} setValue={setValue} />
-
+          {error && (
+            <DivError>
+              O texto digitado nos campos tem de ter no minimo e no maximo 5
+              caracteres!
+            </DivError>
+          )}
           <Button onClick={() => validate()} buttonName="Começar o jogo" />
         </div>
       </div>

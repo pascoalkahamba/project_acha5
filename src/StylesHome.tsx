@@ -35,3 +35,12 @@ export const Section = styled.section`
     font-size: 1.5rem;
   }
 `;
+export const DivError = styled.div`
+  margin: 1rem;
+  font-weight: bold;
+  border: 2px solid red;
+  border-radius: 1rem;
+  padding: 0.7rem;
+  color: red;
+  box-shadow: 0px 0px 0.5rem red;
+`;
