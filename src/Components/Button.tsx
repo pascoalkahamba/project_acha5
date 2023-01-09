@@ -1,9 +1,10 @@
-import React from "react";
+import { GeneralButton } from "../MyStyles";
+
 type Parameter = {
   buttonName: string;
 };
 const Button = ({ buttonName }: Parameter) => {
-  return <button>{buttonName}</button>;
+  return <GeneralButton>{buttonName}</GeneralButton>;
 };
 
 export default Button;

@@ -3,16 +3,3 @@ label {
   font-size: 1.3rem;
   font-weight: bold;
 }
-.input {
-  display: flex;
-  gap: 1.5rem;
-  align-items: center;
-  margin-bottom: 2rem;
-}
-input {
-  width: 10rem;
-  border: 1px #ccc solid;
-  outline: none;
-  padding: 1rem;
-  border-radius: 0.5rem;
-}

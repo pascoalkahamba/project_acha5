@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "./Button";
 import styles from "./Home.module.css";
-import Input from "./Input";
+import NormaInputl from "./NormaInputl";
 
 const Home = () => {
   return (
@@ -30,8 +30,14 @@ const Home = () => {
       <div className={styles.form}>
         <h1 className={styles.center}>Acha-5</h1>
         <div className={styles.inputs}>
-          <Input title="Palavra do Jogador 1" label="Palavra do Jogador 1: " />
-          <Input title="Palavra do Jogador 2" label="Palavra do Jogador 2: " />
+          <NormaInputl
+            title="Palavra do Jogador 1"
+            label="Palavra do Jogador 1: "
+          />
+          <NormaInputl
+            title="Palavra do Jogador 2"
+            label="Palavra do Jogador 2: "
+          />
           <Button buttonName="Começar o jogo" />
         </div>
       </div>
