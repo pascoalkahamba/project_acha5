@@ -5,6 +5,9 @@ import { css } from "styled-components";
 interface FormProps {
   direction: React.CSSProperties["flexDirection"];
 }
+interface TestProps {
+  active: boolean;
+}
 export const GlobalStyle = createGlobalStyle`
   * {
   margin: 0;
@@ -64,7 +67,7 @@ export const Form = styled.form<FormProps>`
     `}
 `;
 
-export const SonDiv = styled.div`
+export const SonDiv = styled.div<TestProps>`
   max-width: 100%;
   padding: 1rem;
   margin-bottom: 2rem;
@@ -72,6 +75,24 @@ export const SonDiv = styled.div`
   box-shadow: 1px 1px 0.3rem blue;
   border-radius: 0.5rem;
   border: 2px solid blue;
+  transition: 0.3s;
+
+  ${({ active }) =>
+    active === false &&
+    css`
+      box-shadow: 1px 1px 0.3rem #000;
+      border: 2px solid #000;
+      label {
+        color: #000;
+      }
+      input,
+      button {
+        background-color: #000;
+        cursor: text;
+        pointer-events: none;
+        color: #797979;
+      }
+    `}
 `;
 export const ContentDiv = styled.div`
   background: white;
