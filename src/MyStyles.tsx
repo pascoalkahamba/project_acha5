@@ -1,6 +1,10 @@
+import React from "react";
 import styled from "styled-components";
 import { createGlobalStyle } from "styled-components";
-
+import { css } from "styled-components";
+interface FormProps {
+  direction: React.CSSProperties["flexDirection"];
+}
 export const GlobalStyle = createGlobalStyle`
   * {
   margin: 0;
@@ -15,6 +19,7 @@ body {
   background: rgb(157, 157, 250);
   color: white;
 }
+
 `;
 
 export const GeneralButton = styled.button`
@@ -33,9 +38,9 @@ export const GeneralButton = styled.button`
   }
 `;
 
-export const Form = styled.form`
+export const Form = styled.form<FormProps>`
   display: flex;
-  flex-direction: column;
+  flex-direction: ${({ direction }) => direction};
   gap: 1.5rem;
   margin-bottom: 2rem;
 
@@ -52,4 +57,32 @@ export const Form = styled.form`
     padding: 1rem;
     border-radius: 0.5rem;
   }
+  ${({ direction }) =>
+    direction === "row" &&
+    css`
+      align-items: center;
+    `}
+`;
+
+export const SonDiv = styled.div`
+  max-width: 100%;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  background-color: #fff;
+  box-shadow: 1px 1px 0.3rem blue;
+  border-radius: 0.5rem;
+  border: 2px solid blue;
+`;
+export const ContentDiv = styled.div`
+  background: white;
+  max-width: 100%;
+  border-radius: 0.5rem;
+
+  .second {
+    padding: 1.6rem;
+  }
+`;
+
+const NewForm = styled(Form)`
+  align-items: center;
 `;

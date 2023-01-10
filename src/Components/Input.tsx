@@ -7,7 +7,11 @@ type Parameters = {
     jogador2: string;
   };
 };
-interface InputType {
+interface FormProps {
+  direction: React.CSSProperties["flexDirection"];
+}
+
+export interface InputType {
   target: HTMLInputElement;
 }
 const Input = ({ value, setValue }: Parameters) => {
@@ -15,7 +19,7 @@ const Input = ({ value, setValue }: Parameters) => {
     setValue({ ...value, [target.id]: target.value });
   };
   return (
-    <Form>
+    <Form direction="column">
       <div>
         <label htmlFor="jogador1">Palavra do Jogador 1: </label>
         <input
