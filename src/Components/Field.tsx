@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { Form } from "../MyStyles";
 import Button from "./Button";
+
 interface Props {
   label: string;
   value?: {
@@ -12,10 +14,17 @@ interface Props {
   setActive: Function;
 }
 const Field = ({ label, title, setActive, active, id }: Props) => {
-  const handleClick = () => {
+  const [input, setInput] = useState("");
+  const handleClick = (): boolean => {
     setActive(!active);
     console.log(active);
+    return active;
   };
+  const sameValue = () => {
+    setInput(input);
+    console.log("Mesmo Valor");
+  };
+  console.log(active);
   return (
     <Form direction="row" onSubmit={(event) => event.preventDefault()}>
       <label htmlFor={id}>{label}</label>
@@ -23,9 +32,15 @@ const Field = ({ label, title, setActive, active, id }: Props) => {
         type="text"
         placeholder={title}
         id={id}
-        disabled={active === true ? true : false}
+        value={input}
+        disabled={active}
+        onChange={sameValue}
       />
-      <Button buttonName="teste" onClick={() => handleClick()} />
+      <Button
+        buttonName="teste"
+        onClick={() => handleClick()}
+        active={active}
+      />
     </Form>
   );
 };

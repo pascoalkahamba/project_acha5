@@ -27,7 +27,7 @@ const TestPage = () => {
               title="Jogador2"
               id="jogador2"
               label="Palavra de Teste(Jog2):  "
-              active={active}
+              active={!active}
               setActive={setActive}
             />
           </SonDiv>

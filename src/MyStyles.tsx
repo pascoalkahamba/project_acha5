@@ -87,7 +87,7 @@ export const SonDiv = styled.div<TestProps>`
       }
       input,
       button {
-        background-color: #000;
+        background-color: #3d3d3d;
         cursor: text;
         pointer-events: none;
         color: #797979;
