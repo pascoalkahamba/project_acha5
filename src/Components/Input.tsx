@@ -11,11 +11,10 @@ interface FormProps {
   direction: React.CSSProperties["flexDirection"];
 }
 
-export interface InputType {
-  target: HTMLInputElement;
-}
+type PropsInput = React.ChangeEventHandler<HTMLInputElement> | undefined;
+
 const Input = ({ value, setValue }: Parameters) => {
-  const handleChange = ({ target }: InputType) => {
+  const handleChange: PropsInput = ({ target }) => {
     setValue({ ...value, [target.id]: target.value });
   };
   return (

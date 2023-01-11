@@ -19,7 +19,7 @@ const TestPage = () => {
               id="jogador1"
               label="Palavra de Teste(Jog1):  "
               active={active}
-              setActive={setActive}
+              setActive={() => setActive(true)}
             />
           </SonDiv>
           <SonDiv active={active}>
@@ -28,7 +28,7 @@ const TestPage = () => {
               id="jogador2"
               label="Palavra de Teste(Jog2):  "
               active={!active}
-              setActive={setActive}
+              setActive={() => setActive(false)}
             />
           </SonDiv>
         </div>

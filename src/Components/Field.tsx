@@ -13,24 +13,25 @@ interface Props {
   active: boolean;
   setActive: Function;
 }
+
+type PropsSameValue = React.ChangeEventHandler<HTMLInputElement> | undefined;
 const Field = ({ label, title, setActive, active, id }: Props) => {
   const [input, setInput] = useState("");
-  const handleClick = (): boolean => {
-    setActive(!active);
-    console.log(active);
-    return active;
+  const handleClick = () => {
+    setActive();
+    setInput("");
   };
-  const sameValue = () => {
-    setInput(input);
-    console.log("Mesmo Valor");
+  const sameValue: PropsSameValue = ({ target }) => {
+    setInput(target.value);
   };
-  console.log(active);
+
   return (
     <Form direction="row" onSubmit={(event) => event.preventDefault()}>
       <label htmlFor={id}>{label}</label>
       <input
         type="text"
         placeholder={title}
+        maxLength={5}
         id={id}
         value={input}
         disabled={active}
