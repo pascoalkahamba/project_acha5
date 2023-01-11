@@ -3,10 +3,11 @@ import { SonDiv } from "../MyStyles";
 import { Section } from "../StylesHome";
 import { ContentDiv } from "../MyStyles";
 import Field from "./Field";
+import { StateProps } from "./Home";
 interface TestProps {
   active: boolean;
 }
-const TestPage = () => {
+const TestPage = ({ value, setValue }: StateProps) => {
   const [active, setActive] = useState(false);
   return (
     <Section>
@@ -15,6 +16,7 @@ const TestPage = () => {
         <div className="second">
           <SonDiv active={!active}>
             <Field
+              value={value}
               title="Jogador1"
               id="jogador1"
               label="Palavra de Teste(Jog1):  "
@@ -24,6 +26,7 @@ const TestPage = () => {
           </SonDiv>
           <SonDiv active={active}>
             <Field
+              value={value}
               title="Jogador2"
               id="jogador2"
               label="Palavra de Teste(Jog2):  "

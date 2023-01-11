@@ -63,7 +63,13 @@ export const Form = styled.form<FormProps>`
   ${({ direction }) =>
     direction === "row" &&
     css`
-      align-items: center;
+      display: block;
+      input {
+        margin-right: 1.5rem;
+      }
+      div {
+        margin: 2rem 0.2rem auto auto;
+      }
     `}
 `;
 
@@ -102,8 +108,4 @@ export const ContentDiv = styled.div`
   .second {
     padding: 1.6rem;
   }
-`;
-
-const NewForm = styled(Form)`
-  align-items: center;
 `;

@@ -36,6 +36,7 @@ export const Section = styled.section`
   }
 `;
 export const DivError = styled.div`
+  display: block;
   margin: 1rem;
   font-weight: bold;
   border: 2px solid red;
@@ -43,4 +44,5 @@ export const DivError = styled.div`
   padding: 0.7rem;
   color: red;
   box-shadow: 0px 0px 0.5rem red;
+  transition: 0.3s;
 `;

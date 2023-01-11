@@ -5,17 +5,23 @@ import { useState } from "react";
 import { DivError } from "../StylesHome";
 import { useNavigate } from "react-router-dom";
 
-const Home = () => {
-  const [value, setValue] = useState({ jogador1: "", jogador2: "" });
+export interface StateProps {
+  value: {
+    jogador1: string;
+    jogador2: string;
+  };
+  setValue: Function;
+}
+const Home = ({ value, setValue }: StateProps) => {
   const [error, SetError] = useState(false);
   const navigate = useNavigate();
   const validate = () => {
     let message = "";
-    if (value.jogador1 === "" || value.jogador1.length < 5) {
+    if (value.jogador1.length < 5) {
       message = "Digite o valor do jogador 1\n";
     }
 
-    if (value.jogador2 === "" || value.jogador2.length < 5) {
+    if (value.jogador2.length < 5) {
       message += "Digite o valor do jogador 2";
     }
     if (message !== "") {
@@ -23,6 +29,7 @@ const Home = () => {
       return false;
     }
     navigate("/test");
+    return true;
   };
 
   return (
