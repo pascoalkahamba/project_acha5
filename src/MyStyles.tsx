@@ -6,7 +6,8 @@ interface FormProps {
   direction: React.CSSProperties["flexDirection"];
 }
 interface TestProps {
-  active: boolean;
+  active?: boolean;
+  background: React.CSSProperties["background"];
 }
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -77,7 +78,7 @@ export const SonDiv = styled.div<TestProps>`
   max-width: 100%;
   padding: 1rem;
   margin-bottom: 2rem;
-  background-color: #fff;
+  background-color: ${({ background }) => background};
   box-shadow: 1px 1px 0.3rem blue;
   border-radius: 0.5rem;
   border: 2px solid blue;
@@ -97,6 +98,22 @@ export const SonDiv = styled.div<TestProps>`
         cursor: text;
         pointer-events: none;
         color: #797979;
+      }
+    `}
+
+  ${({ background }) =>
+    background === "rgb(157, 157, 250)" &&
+    css`
+      border: 2px solid white;
+      padding: 1.5rem;
+      p {
+        margin: 1.5rem auto;
+      }
+      label {
+        color: #fff;
+      }
+      span {
+        color: blue;
       }
     `}
 `;

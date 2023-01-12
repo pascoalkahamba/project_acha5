@@ -10,13 +10,24 @@ interface Props {
     jogador1: string;
     jogador2: string;
   };
-  id: string;
+  id?: string;
   title: string;
-  active: boolean;
+  active?: boolean;
+  button: boolean;
   setActive: Function;
+  resultEnd: Function;
 }
 
-const Field = ({ label, title, setActive, active, id, value }: Props) => {
+const Field = ({
+  label,
+  title,
+  setActive,
+  active,
+  id,
+  value,
+  resultEnd,
+  button,
+}: Props) => {
   const [input, setInput] = useState("");
   const [error, setError] = useState(false);
 
@@ -27,6 +38,7 @@ const Field = ({ label, title, setActive, active, id, value }: Props) => {
       setError(false);
       setActive();
       setInput("");
+      resultEnd(true);
     }
   };
   const sameValue: PropsSameValue = ({ target }) => {
@@ -45,11 +57,13 @@ const Field = ({ label, title, setActive, active, id, value }: Props) => {
         disabled={active}
         onChange={sameValue}
       />
-      <Button
-        buttonName="teste"
-        onClick={() => handleClick()}
-        active={active}
-      />
+      {button && (
+        <Button
+          buttonName="teste"
+          onClick={() => handleClick()}
+          active={active}
+        />
+      )}
       {error && (
         <DivError>
           O texto digitado nos campos tem de ter no minimo e no maximo 5
