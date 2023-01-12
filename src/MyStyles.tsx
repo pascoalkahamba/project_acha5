@@ -113,7 +113,7 @@ export const SonDiv = styled.div<TestProps>`
         color: #fff;
       }
       span {
-        color: blue;
+        color: blue !important;
       }
     `}
 `;

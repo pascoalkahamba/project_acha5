@@ -6,10 +6,7 @@ import Button from "./Button";
 type PropsSameValue = React.ChangeEventHandler<HTMLInputElement> | undefined;
 interface Props {
   label: string;
-  value?: {
-    jogador1: string;
-    jogador2: string;
-  };
+  value?: string;
   id?: string;
   title: string;
   active?: boolean;
@@ -31,6 +28,11 @@ const Field = ({
   const [input, setInput] = useState("");
   const [error, setError] = useState(false);
 
+  const isSame = (jogador: string | undefined) => {
+    if (input === jogador) {
+      console.log("Voce descubriu a palaavra secreta");
+    }
+  };
   const handleClick = () => {
     if (input.length < 5) {
       setError(true);
@@ -38,7 +40,8 @@ const Field = ({
       setError(false);
       setActive();
       setInput("");
-      resultEnd(true);
+      resultEnd(true, input);
+      isSame(value);
     }
   };
   const sameValue: PropsSameValue = ({ target }) => {

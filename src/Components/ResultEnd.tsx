@@ -1,13 +1,16 @@
 import React from "react";
 import { SonDiv } from "../MyStyles";
 import Field from "./Field";
-
-const ResultEnd = () => {
+interface Props {
+  playerWord: string;
+}
+const ResultEnd = ({ playerWord }: Props) => {
   return (
     <SonDiv background="rgb(157, 157, 250)">
       <h2>Jogador</h2>
       <p>
-        Mensagem: <span>aaaa tem 0 letras da palavra secreta do jogadorx</span>
+        Mensagem:{" "}
+        <span> {playerWord} tem 0 letras da palavra secreta do jogadorx</span>
       </p>
       <Field
         button={false}
