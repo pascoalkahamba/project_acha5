@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Form } from "../MyStyles";
 import { DivError } from "../StylesHome";
 import Button from "./Button";
@@ -6,13 +6,15 @@ import Button from "./Button";
 type PropsSameValue = React.ChangeEventHandler<HTMLInputElement> | undefined;
 interface Props {
   label: string;
+  number?: number;
   value?: string;
   id?: string;
   title: string;
   active?: boolean;
-  button: boolean;
-  setActive: Function;
-  resultEnd: Function;
+  button?: boolean;
+  setActive?: Function;
+  resultEnd?: Function;
+  setDiscoveries?: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const Field = ({
@@ -21,15 +23,26 @@ const Field = ({
   setActive,
   active,
   id,
+  number,
   value,
   resultEnd,
+  setDiscoveries,
   button,
 }: Props) => {
   const [input, setInput] = useState("");
   const [error, setError] = useState(false);
+  const [idDifferent, setIdDifferent] = useState("");
 
-  const isSame = (jogador: string | undefined) => {
-    if (input === jogador) {
+  useEffect(() => {
+    if (title === title) setIdDifferent(`Jogador${number}`);
+  }, [title]);
+
+  const isSameValue = (player: string) => {
+    input.split("").forEach((letter) => {
+      if (player.includes(letter))
+        if (setDiscoveries) setDiscoveries((discover) => discover + 1);
+    });
+    if (input === player) {
       console.log("Voce descubriu a palaavra secreta");
     }
   };
@@ -38,13 +51,17 @@ const Field = ({
       setError(true);
     } else {
       setError(false);
-      setActive();
+      if (setActive) setActive();
+
       setInput("");
-      resultEnd(true, input);
-      isSame(value);
+      if (resultEnd) resultEnd(true, input, idDifferent, title);
+
+      if (setDiscoveries) setDiscoveries(0);
+
+      if (value) isSameValue(value);
     }
   };
-  const sameValue: PropsSameValue = ({ target }) => {
+  const handleChange: PropsSameValue = ({ target }) => {
     setInput(target.value);
   };
 
@@ -58,7 +75,7 @@ const Field = ({
         id={id}
         value={input}
         disabled={active}
-        onChange={sameValue}
+        onChange={handleChange}
       />
       {button && (
         <Button

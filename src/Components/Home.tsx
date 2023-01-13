@@ -10,7 +10,12 @@ export interface StateProps {
     jogador1: string;
     jogador2: string;
   };
-  setValue: Function;
+  setValue: React.Dispatch<
+    React.SetStateAction<{
+      jogador1: string;
+      jogador2: string;
+    }>
+  >;
 }
 const Home = ({ value, setValue }: StateProps) => {
   const [error, SetError] = useState(false);

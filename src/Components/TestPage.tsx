@@ -9,10 +9,11 @@ import ResultEnd from "./ResultEnd";
 const TestPage = ({ value, setValue }: StateProps) => {
   const [active, setActive] = useState(false);
   const [result, setResult] = useState(false);
-  const [playerWord, setPlayerWord] = useState("");
+  const [discoveries, setDiscoveries] = useState(0);
+  const [playerInformation, setPlayerInformation] = useState([""]);
 
-  const resultEnd = (error: boolean, ...args: [string]) => {
-    setPlayerWord(args[0]);
+  const resultEnd = (error: boolean, ...args: string[]) => {
+    setPlayerInformation(args);
     console.log(args[0]);
     setResult(error);
   };
@@ -24,6 +25,8 @@ const TestPage = ({ value, setValue }: StateProps) => {
         <div className="second">
           <SonDiv active={!active} background="#fff">
             <Field
+              number={2}
+              setDiscoveries={setDiscoveries}
               button={true}
               value={value.jogador2}
               resultEnd={resultEnd}
@@ -36,6 +39,8 @@ const TestPage = ({ value, setValue }: StateProps) => {
           </SonDiv>
           <SonDiv active={active} background="#fff">
             <Field
+              number={1}
+              setDiscoveries={setDiscoveries}
               button={true}
               value={value.jogador1}
               resultEnd={resultEnd}
@@ -46,7 +51,12 @@ const TestPage = ({ value, setValue }: StateProps) => {
               setActive={() => setActive(false)}
             />
           </SonDiv>
-          {result && <ResultEnd playerWord={playerWord} />}
+          {result && (
+            <ResultEnd
+              playerInformation={playerInformation}
+              discoveries={discoveries}
+            />
+          )}
         </div>
       </ContentDiv>
     </Section>

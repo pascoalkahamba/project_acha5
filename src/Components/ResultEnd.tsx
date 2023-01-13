@@ -2,36 +2,26 @@ import React from "react";
 import { SonDiv } from "../MyStyles";
 import Field from "./Field";
 interface Props {
-  playerWord: string;
+  playerInformation: string[];
+  discoveries: number;
 }
-const ResultEnd = ({ playerWord }: Props) => {
+const ResultEnd = ({ playerInformation, discoveries }: Props) => {
   return (
     <SonDiv background="rgb(157, 157, 250)">
-      <h2>Jogador</h2>
+      <h2> {playerInformation[2]}</h2>
       <p>
         Mensagem:{" "}
-        <span> {playerWord} tem 0 letras da palavra secreta do jogadorx</span>
+        <span>
+          {`${playerInformation[0]}  tem ${discoveries} letras da palavra secreta do ${playerInformation[1]}`}
+        </span>
       </p>
-      <Field
-        button={false}
-        resultEnd={Function}
-        setActive={Function}
-        title="Anotações"
-        label="Letras Descobertas(Possiveis):  "
-      />
+      <Field title="Anotações" label="Letras Descobertas(Possiveis):  " />
 
       <p>
-        Quantidades de letras descobertas:
-        <span> 0</span>
+        Quantidades de letras descobertas: <span>{discoveries}</span>
       </p>
 
-      <Field
-        resultEnd={Function}
-        setActive={Function}
-        button={false}
-        label="A palavra é:  "
-        title="Sera que sabes?"
-      />
+      <Field label="A palavra é:  " title="Sera que sabes?" />
     </SonDiv>
   );
 };
