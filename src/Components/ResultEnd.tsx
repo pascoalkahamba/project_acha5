@@ -1,6 +1,8 @@
 import React from "react";
 import { SonDiv } from "../MyStyles";
 import Field from "./Field";
+import FirstPlayerField from "./FirstPlayerField";
+import SecondPlayerField from "./SecondPlayerField";
 interface Props {
   playerInformation: string[];
   discoveries: number;
@@ -15,7 +17,11 @@ const ResultEnd = ({ playerInformation, discoveries }: Props) => {
           {`${playerInformation[0]}  tem ${discoveries} letras da palavra secreta do ${playerInformation[1]}`}
         </span>
       </p>
-      <Field title="Anotações" label="Letras Descobertas(Possiveis):  " />
+      {playerInformation[2] === "Jogador1" ? (
+        <FirstPlayerField />
+      ) : (
+        <SecondPlayerField />
+      )}
 
       <p>
         Quantidades de letras descobertas: <span>{discoveries}</span>

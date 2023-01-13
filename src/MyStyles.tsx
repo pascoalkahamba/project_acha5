@@ -126,3 +126,22 @@ export const ContentDiv = styled.div`
     padding: 1.6rem;
   }
 `;
+export const PlayerField = styled.form`
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+
+  label {
+    color: #fff;
+    font-size: 1.3rem;
+  }
+
+  input {
+    width: 10rem;
+    border: 1px #ccc solid;
+    outline: none;
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+`;
