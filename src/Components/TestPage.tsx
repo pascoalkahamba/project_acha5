@@ -10,6 +10,11 @@ const TestPage = ({ value, setValue }: StateProps) => {
   const [active, setActive] = useState(false);
   const [result, setResult] = useState(false);
   const [discoveries, setDiscoveries] = useState(0);
+  const [playerWord, setPlayerWord] = useState({
+    firstPlayer: "",
+    secondPlayer: "",
+  });
+
   const [playerInformation, setPlayerInformation] = useState([""]);
 
   const resultEnd = (error: boolean, ...args: string[]) => {
@@ -17,7 +22,7 @@ const TestPage = ({ value, setValue }: StateProps) => {
     console.log(args[0]);
     setResult(error);
   };
-
+  console.log(playerWord);
   return (
     <Section>
       <ContentDiv>
@@ -53,6 +58,8 @@ const TestPage = ({ value, setValue }: StateProps) => {
           </SonDiv>
           {result && (
             <ResultEnd
+              playerWord={playerWord}
+              setPlayerWord={setPlayerWord}
               playerInformation={playerInformation}
               discoveries={discoveries}
             />
