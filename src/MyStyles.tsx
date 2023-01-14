@@ -131,7 +131,7 @@ export const PlayerField = styled.form`
   align-items: center;
   gap: 1.5rem;
   margin-bottom: 2rem;
-
+  transition: 0.3s;
   label {
     color: #fff;
     font-size: 1.3rem;

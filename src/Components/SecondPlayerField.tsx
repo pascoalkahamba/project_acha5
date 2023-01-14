@@ -8,6 +8,7 @@ const SecondPlayerField = () => {
       <label htmlFor="jogador2">Letras Descobertas(Possiveis): </label>
       <input
         type="text"
+        maxLength={5}
         id="jogador2"
         placeholder="Anotações"
         value={input}

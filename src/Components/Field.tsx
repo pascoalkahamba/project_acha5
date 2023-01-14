@@ -54,7 +54,7 @@ const Field = ({
       if (setActive) setActive();
 
       setInput("");
-      if (resultEnd) resultEnd(true, input, idDifferent, title);
+      if (resultEnd) resultEnd(true, input, idDifferent, title, value);
 
       if (setDiscoveries) setDiscoveries(0);
 
