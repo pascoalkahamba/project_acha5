@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { PlayerField, SonDiv } from "../MyStyles";
 import Button from "./Button";
 
-import FirstPlayerField from "./FirstPlayerField";
+import GeneralPlayerField from "./GeneralPlayerField";
 
 interface Props {
   playerInformation: string[];
@@ -56,7 +56,7 @@ const ResultEnd = ({
         </span>
       </p>
 
-      <FirstPlayerField
+      <GeneralPlayerField
         currentPlayer={playerInformation[2]}
         playerWord={playerWord}
         setPlayerWord={setPlayerWord}

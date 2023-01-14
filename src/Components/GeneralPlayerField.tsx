@@ -1,6 +1,6 @@
 import { PlayerField } from "../MyStyles";
 
-interface PlayerFields {
+interface PlayerFieldProps {
   currentPlayer: string;
   playerWord: {
     firstPlayer: string;
@@ -15,11 +15,11 @@ interface PlayerFields {
 }
 type FirstProps = React.ChangeEventHandler<HTMLInputElement> | undefined;
 
-const FirstPlayerField = ({
+const GeneralPlayerField = ({
   currentPlayer,
   setPlayerWord,
   playerWord,
-}: PlayerFields) => {
+}: PlayerFieldProps) => {
   const handleChange: FirstProps = ({ target }) => {
     setPlayerWord({ ...playerWord, [target.id]: target.value });
   };
@@ -54,4 +54,4 @@ const FirstPlayerField = ({
   );
 };
 
-export default FirstPlayerField;
+export default GeneralPlayerField;
