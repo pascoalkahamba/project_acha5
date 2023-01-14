@@ -84,6 +84,26 @@ export const SonDiv = styled.div<TestProps>`
   border: 2px solid blue;
   transition: 0.3s;
 
+  .onlyError {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: normal;
+    color: #ff0000c0 !important;
+    font-style: italic;
+    padding: 0.2rem;
+    margin-left: 5rem;
+    margin-top: -2rem;
+  }
+
+  .wrongWord {
+    display: block;
+    font-weight: normal;
+    color: #ff0000c0 !important;
+    font-style: italic;
+    padding: 0.2rem;
+    margin: auto;
+  }
+
   ${({ active }) =>
     active === false &&
     css`

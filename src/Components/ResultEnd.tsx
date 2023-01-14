@@ -27,6 +27,10 @@ const ResultEnd = ({
   setPlayerWord,
 }: Props) => {
   const [rightWord, setRightWord] = useState("");
+  const [error, setError] = useState(false);
+  const [wrongWord, setWrongWord] = useState(false);
+  const [modal, setModal] = useState(false);
+  const [inputClass, setInputClass] = useState("");
 
   const handleChange: ChangeProps = ({ target }) => {
     setRightWord(target.value);
@@ -35,12 +39,15 @@ const ResultEnd = ({
   const isSameWord = () => {
     console.log("teste");
     if (rightWord.length < 5) {
-      alert("ERRO! a palavra tem que ser maior que 5");
+      setWrongWord(false);
+      setError(true);
     } else {
+      setError(false);
       if (rightWord === playerInformation[3]) {
         alert("Parabens voce descubriu a palavra");
+        setWrongWord(false);
       } else {
-        alert("Palavra errada tente novamente");
+        setWrongWord(true);
       }
     }
     setRightWord("");
@@ -77,6 +84,12 @@ const ResultEnd = ({
         />
         <Button buttonName="verificar" onClick={() => isSameWord()} />
       </PlayerField>
+      {error && (
+        <span className="onlyError">palavra têm que ter 5 caracteres </span>
+      )}
+      {wrongWord && (
+        <span className="wrongWord">Palavra errada tente novamente</span>
+      )}
     </SonDiv>
   );
 };
