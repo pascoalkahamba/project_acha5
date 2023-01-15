@@ -3,6 +3,7 @@ import { PlayerField, SonDiv } from "../MyStyles";
 import Button from "./Button";
 
 import GeneralPlayerField from "./GeneralPlayerField";
+import Modal from "./Modal";
 
 interface Props {
   playerInformation: string[];
@@ -71,7 +72,7 @@ const ResultEnd = ({
       setInputClass("");
       setError(false);
       if (rightWord === playerInformation[3]) {
-        alert("Parabens voce descubriu a palavra");
+        setModal(true);
         setWrongWord(false);
       } else {
         setWrongWord(true);
@@ -118,6 +119,7 @@ const ResultEnd = ({
       {wrongWord && (
         <span className="wrongWord">Palavra errada tente novamente</span>
       )}
+      {modal && <Modal />}
     </SonDiv>
   );
 };

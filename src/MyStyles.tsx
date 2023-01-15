@@ -178,3 +178,19 @@ export const PlayerField = styled.form`
     transition: 0.3s;
   }
 `;
+
+export const DivModal = styled.div`
+  display: block;
+  position: absolute;
+  z-index: 1000;
+  top: 23rem;
+  left: 3rem;
+  right: 3rem;
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  background: rgb(157, 157, 250);
+  border: 3px solid white;
+  box-shadow: 1px 1px 0.5rem rgb(157, 157, 250);
+`;
