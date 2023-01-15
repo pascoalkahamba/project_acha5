@@ -15,6 +15,10 @@ interface Props {
   setActive?: Function;
   resultEnd?: Function;
   setDiscoveries?: React.Dispatch<React.SetStateAction<number>>;
+  setError: React.Dispatch<React.SetStateAction<boolean>>;
+  setWrongWord: React.Dispatch<React.SetStateAction<boolean>>;
+  setInputClass: React.Dispatch<React.SetStateAction<string>>;
+  setRightWord: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const Field = ({
@@ -26,11 +30,15 @@ const Field = ({
   number,
   value,
   resultEnd,
-  setDiscoveries,
   button,
+  setDiscoveries,
+  setError,
+  setWrongWord,
+  setInputClass,
+  setRightWord,
 }: Props) => {
   const [input, setInput] = useState("");
-  const [error, setError] = useState(false);
+  const [InputError, setInputError] = useState(false);
   const [idDifferent, setIdDifferent] = useState("");
 
   useEffect(() => {
@@ -48,9 +56,13 @@ const Field = ({
   };
   const handleClick = () => {
     if (input.length < 5) {
-      setError(true);
+      setInputError(true);
     } else {
+      setRightWord("");
+      setInputClass("");
       setError(false);
+      setWrongWord(false);
+      setInputError(false);
       if (setActive) setActive();
 
       setInput("");
@@ -84,7 +96,7 @@ const Field = ({
           active={active}
         />
       )}
-      {error && (
+      {InputError && (
         <DivError>
           O texto digitado nos campos tem de ter no minimo e no maximo 5
           caracteres!

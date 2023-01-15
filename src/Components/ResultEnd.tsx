@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { PlayerField, SonDiv } from "../MyStyles";
 import Button from "./Button";
 
@@ -17,6 +17,14 @@ interface Props {
       secondPlayer: string;
     }>
   >;
+  error: boolean;
+  wrongWord: boolean;
+  inputClass: string;
+  rightWord: string;
+  setError: React.Dispatch<React.SetStateAction<boolean>>;
+  setWrongWord: React.Dispatch<React.SetStateAction<boolean>>;
+  setInputClass: React.Dispatch<React.SetStateAction<string>>;
+  setRightWord: React.Dispatch<React.SetStateAction<string>>;
 }
 type ChangeProps = React.ChangeEventHandler<HTMLInputElement> | undefined;
 
@@ -25,15 +33,32 @@ const ResultEnd = ({
   discoveries,
   playerWord,
   setPlayerWord,
+  error,
+  wrongWord,
+  inputClass,
+  rightWord,
+  setInputClass,
+  setError,
+  setWrongWord,
+  setRightWord,
 }: Props) => {
-  const [rightWord, setRightWord] = useState("");
-  const [error, setError] = useState(false);
-  const [wrongWord, setWrongWord] = useState(false);
   const [modal, setModal] = useState(false);
-  const [inputClass, setInputClass] = useState("");
+
+  useEffect(() => {
+    if (rightWord.length >= 5 && rightWord === playerInformation[3]) {
+      setInputClass("rightWord");
+      setError(false);
+      setWrongWord(false);
+    } else if (rightWord.length >= 5 && rightWord !== playerInformation[3]) {
+      setInputClass("notIsWord");
+      setError(false);
+      setWrongWord(false);
+    }
+  }, [rightWord]);
 
   const handleChange: ChangeProps = ({ target }) => {
     setRightWord(target.value);
+    console.log("Hello");
   };
 
   const isSameWord = () => {
@@ -41,7 +66,9 @@ const ResultEnd = ({
     if (rightWord.length < 5) {
       setWrongWord(false);
       setError(true);
+      setInputClass("");
     } else {
+      setInputClass("");
       setError(false);
       if (rightWord === playerInformation[3]) {
         alert("Parabens voce descubriu a palavra");
@@ -77,6 +104,7 @@ const ResultEnd = ({
         <input
           type="text"
           maxLength={5}
+          className={inputClass}
           id="seraQueSabes"
           value={rightWord}
           placeholder="Sera que sabes?"

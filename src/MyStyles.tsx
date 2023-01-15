@@ -36,6 +36,7 @@ export const GeneralButton = styled.button`
   padding: 1rem 0.5rem;
   border-radius: 0.5rem;
   transition: 0.3s;
+  outline: none;
 
   &:hover {
     background-color: rgb(0, 0, 116);
@@ -163,5 +164,17 @@ export const PlayerField = styled.form`
     outline: none;
     padding: 1rem;
     border-radius: 0.5rem;
+  }
+
+  .rightWord {
+    box-shadow: 1px 1px 0.5rem green;
+    border: 2px solid green;
+    transition: 0.3s;
+  }
+
+  .notIsWord {
+    box-shadow: 1px 1px 0.5rem #ff0000c0;
+    border: 2px solid #ff0000c0;
+    transition: 0.3s;
   }
 `;

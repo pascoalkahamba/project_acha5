@@ -9,7 +9,12 @@ import ResultEnd from "./ResultEnd";
 const TestPage = ({ value, setValue }: StateProps) => {
   const [active, setActive] = useState(false);
   const [result, setResult] = useState(false);
+  const [error, setError] = useState(false);
+  const [wrongWord, setWrongWord] = useState(false);
   const [discoveries, setDiscoveries] = useState(0);
+  const [inputClass, setInputClass] = useState("");
+  const [rightWord, setRightWord] = useState("");
+
   const [playerWord, setPlayerWord] = useState({
     firstPlayer: "",
     secondPlayer: "",
@@ -30,8 +35,12 @@ const TestPage = ({ value, setValue }: StateProps) => {
         <div className="second">
           <SonDiv active={!active} background="#fff">
             <Field
+              setWrongWord={setWrongWord}
+              setError={setError}
               number={2}
               setDiscoveries={setDiscoveries}
+              setInputClass={setInputClass}
+              setRightWord={setRightWord}
               button={true}
               value={value.jogador2}
               resultEnd={resultEnd}
@@ -44,8 +53,12 @@ const TestPage = ({ value, setValue }: StateProps) => {
           </SonDiv>
           <SonDiv active={active} background="#fff">
             <Field
+              setWrongWord={setWrongWord}
+              setError={setError}
               number={1}
               setDiscoveries={setDiscoveries}
+              setInputClass={setInputClass}
+              setRightWord={setRightWord}
               button={true}
               value={value.jogador1}
               resultEnd={resultEnd}
@@ -58,6 +71,14 @@ const TestPage = ({ value, setValue }: StateProps) => {
           </SonDiv>
           {result && (
             <ResultEnd
+              setRightWord={setRightWord}
+              rightWord={rightWord}
+              setInputClass={setInputClass}
+              inputClass={inputClass}
+              setError={setError}
+              setWrongWord={setWrongWord}
+              error={error}
+              wrongWord={wrongWord}
               playerWord={playerWord}
               setPlayerWord={setPlayerWord}
               playerInformation={playerInformation}
