@@ -5,6 +5,7 @@ import { ContentDiv } from "../MyStyles";
 import Field from "./Field";
 import { StateProps } from "./Home";
 import ResultEnd from "./ResultEnd";
+import { useNavigate } from "react-router-dom";
 
 const TestPage = ({ value, setValue }: StateProps) => {
   const [active, setActive] = useState(false);
@@ -14,11 +15,16 @@ const TestPage = ({ value, setValue }: StateProps) => {
   const [discoveries, setDiscoveries] = useState(0);
   const [inputClass, setInputClass] = useState("");
   const [rightWord, setRightWord] = useState("");
-
+  const navigate = useNavigate();
   const [playerWord, setPlayerWord] = useState({
     firstPlayer: "",
     secondPlayer: "",
   });
+  const handleLoad = () => {
+    setValue({ jogador1: "", jogador2: "" });
+    navigate("/");
+  };
+  window.addEventListener("load", handleLoad);
 
   const [playerInformation, setPlayerInformation] = useState([""]);
 
@@ -83,6 +89,7 @@ const TestPage = ({ value, setValue }: StateProps) => {
               setPlayerWord={setPlayerWord}
               playerInformation={playerInformation}
               discoveries={discoveries}
+              setValue={setValue}
             />
           )}
         </div>

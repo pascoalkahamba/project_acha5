@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { DivModal } from "../MyStyles";
 import Button from "./Button";
 
@@ -7,11 +8,28 @@ interface Props {
   loserPlayer: string;
   secretWord: string;
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setValue: React.Dispatch<
+    React.SetStateAction<{
+      jogador1: string;
+      jogador2: string;
+    }>
+  >;
 }
-const Modal = ({ winningPlayer, loserPlayer, secretWord, setModal }: Props) => {
+const Modal = ({
+  winningPlayer,
+  loserPlayer,
+  secretWord,
+  setModal,
+  setValue,
+}: Props) => {
+  const navigate = useNavigate();
+  window.document.body.classList.add("opacity");
   const modalOut = () => {
     setModal(false);
+    setValue({ jogador1: "", jogador2: "" });
+    window.document.body.classList.remove("opacity");
     console.log("fechar o modal");
+    navigate("/");
   };
   return (
     <DivModal>

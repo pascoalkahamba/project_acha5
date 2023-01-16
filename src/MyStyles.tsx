@@ -24,7 +24,12 @@ body {
   background: rgb(157, 157, 250);
   color: white;
 }
-
+.opacity{
+  div,section{
+  pointer-events: none;
+  }
+  
+}
 `;
 
 export const GeneralButton = styled.button`
@@ -184,7 +189,7 @@ export const DivModal = styled.div`
   display: block;
   position: absolute;
   z-index: 1000;
-  top: 23rem;
+  top: 24rem;
   left: 3rem;
   right: 3rem;
   max-width: 40rem;
@@ -196,9 +201,9 @@ export const DivModal = styled.div`
   box-shadow: 1px 1px 0.5rem rgb(157, 157, 250);
   opacity: 0;
   transform: translateY(-20px);
-  animation: animeLeft 0.3s forwards;
+  animation: animeRight 0.3s forwards;
 
-  @keyframes animeLeft {
+  @keyframes animeRight {
     to {
       opacity: initial;
       transform: initial;
@@ -207,6 +212,7 @@ export const DivModal = styled.div`
 
   button {
     display: block;
+
     justify-content: center;
     align-items: center;
     max-width: 100%;
@@ -215,6 +221,7 @@ export const DivModal = styled.div`
     background: rgb(108, 108, 245);
     font-weight: bolder;
     border: 2px solid white;
+    pointer-events: painted;
   }
 
   button:hover {

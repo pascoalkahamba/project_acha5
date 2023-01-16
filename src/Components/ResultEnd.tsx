@@ -18,6 +18,12 @@ interface Props {
       secondPlayer: string;
     }>
   >;
+  setValue: React.Dispatch<
+    React.SetStateAction<{
+      jogador1: string;
+      jogador2: string;
+    }>
+  >;
   error: boolean;
   wrongWord: boolean;
   inputClass: string;
@@ -40,6 +46,7 @@ const ResultEnd = ({
   rightWord,
   setInputClass,
   setError,
+  setValue,
   setWrongWord,
   setRightWord,
 }: Props) => {
@@ -82,7 +89,7 @@ const ResultEnd = ({
   };
 
   return (
-    <SonDiv background="rgb(157, 157, 250)">
+    <SonDiv background="rgb(157, 157, 250)" className="disappear">
       <h2>{playerInformation[2]}</h2>
       <p>
         Mensagem:{" "}
@@ -125,6 +132,7 @@ const ResultEnd = ({
           loserPlayer={playerInformation[1]}
           secretWord={playerInformation[3]}
           setModal={setModal}
+          setValue={setValue}
         />
       )}
     </SonDiv>
