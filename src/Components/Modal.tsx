@@ -28,7 +28,6 @@ const Modal = ({
     setModal(false);
     setValue({ jogador1: "", jogador2: "" });
     window.document.body.classList.remove("opacity");
-    console.log("fechar o modal");
     navigate("/");
   };
   return (

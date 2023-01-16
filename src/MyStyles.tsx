@@ -211,7 +211,9 @@ export const DivModal = styled.div`
       transform: initial;
     }
   }
-
+  @media (max-width: 40rem) {
+    left: 8.5rem;
+  }
   button {
     justify-content: center;
     align-self: center;
