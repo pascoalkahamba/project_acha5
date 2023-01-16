@@ -4,6 +4,7 @@ import { Section } from "../StylesHome";
 import { useState } from "react";
 import { DivError } from "../StylesHome";
 import { useNavigate } from "react-router-dom";
+import useMedia from "./useMedia";
 
 export interface StateProps {
   value: {
@@ -19,6 +20,9 @@ export interface StateProps {
 }
 const Home = ({ value, setValue }: StateProps) => {
   const [error, SetError] = useState(false);
+  const home = useMedia("(max-width:40rem)");
+  console.log(home);
+
   const navigate = useNavigate();
   const validate = () => {
     let message = "";

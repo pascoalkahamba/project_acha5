@@ -33,7 +33,7 @@ const TestPage = ({ value, setValue }: StateProps) => {
     console.log(args[0]);
     setResult(error);
   };
-  console.log(playerWord);
+
   return (
     <Section>
       <ContentDiv>

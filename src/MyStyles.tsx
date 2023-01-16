@@ -186,7 +186,9 @@ export const PlayerField = styled.form`
 `;
 
 export const DivModal = styled.div`
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
   position: absolute;
   z-index: 1000;
   top: 24rem;
@@ -196,7 +198,7 @@ export const DivModal = styled.div`
   margin: 0 auto;
   padding: 1.5rem;
   border-radius: 0.5rem;
-  background: rgb(157, 157, 250);
+  background: rgb(157, 157, 250) !important;
   border: 3px solid white;
   box-shadow: 1px 1px 0.5rem rgb(157, 157, 250);
   opacity: 0;
@@ -211,13 +213,9 @@ export const DivModal = styled.div`
   }
 
   button {
-    display: block;
-
     justify-content: center;
-    align-items: center;
-    max-width: 100%;
-    margin-left: 16rem;
-    margin-right: 16rem;
+    align-self: center;
+    width: 7rem;
     background: rgb(108, 108, 245);
     font-weight: bolder;
     border: 2px solid white;
