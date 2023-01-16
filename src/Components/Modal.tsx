@@ -33,7 +33,7 @@ const Modal = ({
   return (
     <DivModal>
       <h2>Temos um vencedor!</h2>
-      <p>{`Parabéns ${winningPlayer} você descubriu a palavra secreta do ${loserPlayer}`}</p>
+      <p>{`Parabéns ${winningPlayer} você descobriu a palavra secreta do ${loserPlayer}`}</p>
       <p>{`Pela próxima inventa uma palavra mas difícil  ${loserPlayer} parece que "${secretWord}" não é tão difícil.`}</p>
       <Button buttonName="fechar" onClick={() => modalOut()} />
     </DivModal>

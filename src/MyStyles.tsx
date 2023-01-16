@@ -191,7 +191,7 @@ export const DivModal = styled.div`
   gap: 0.5rem;
   position: absolute;
   z-index: 1000;
-  top: 24rem;
+  top: 23rem;
   left: 3rem;
   right: 3rem;
   max-width: 40rem;
