@@ -1,10 +1,10 @@
-# Projeto CRUD React
+# Projeto Acha-5 TypeScript com React
 
-Este `Projeto` foi desenvolvido para fins de exercicíos com o objetivo de melhorar as minhas `habilidades` em `React`. Básicamente o `projecto` tem a função de `adicionar` `editar` e `excluir` `itens` numa determinada `tabela` com uma boa esperiência do usuário em navegar no site os campos estão perfeitamentes validados.
+Este `Projeto` foi desenvolvido para fins de exercicío com o objetivo de melhorar as minhas `habilidades` em `TypeScript` e `React`. Como o nome já diz projeto `Acha-5` funciona da seguinte forma, na primeira fase dois `Jogadores` digitam suas `senhas` e começam o `jogo` depois cada jogador será `responsável` em `descobrir` a palavra secreta do jogador `adversário` se uns dos jogadores descobrir a palavra secreta do adversário será anuciado como `vencedor`.
 
-![Aqui aparece a foto do projeto](pictures/firstphoto.PNG)
+![Aqui aparece a foto do projeto](src/img/acha1.PNG)
 
-![Aqui aparece a outra foto do projeto](pictures/photo.PNG)
+![Aqui aparece a outra foto do projeto](src/img/acha2.PNG)
 
 ## Tecnologias
 
@@ -12,6 +12,7 @@ As seguintes ferramentas foram usadas na constuição deste projeto:
 
 - HTML
 - CSS
+- TYPESCRIPT
 - REACT
 
 #
