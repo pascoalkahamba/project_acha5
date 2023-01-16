@@ -119,7 +119,14 @@ const ResultEnd = ({
       {wrongWord && (
         <span className="wrongWord">Palavra errada tente novamente</span>
       )}
-      {modal && <Modal />}
+      {modal && (
+        <Modal
+          winningPlayer={playerInformation[2]}
+          loserPlayer={playerInformation[1]}
+          secretWord={playerInformation[3]}
+          setModal={setModal}
+        />
+      )}
     </SonDiv>
   );
 };

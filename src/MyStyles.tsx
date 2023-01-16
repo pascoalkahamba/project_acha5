@@ -16,6 +16,7 @@ export const GlobalStyle = createGlobalStyle`
   box-sizing: border-box;
 }
 body {
+  display: grid;
   --type-first: Arial, Helvetica, sans-serif;
   font-family: var(--type-first);
   margin: 1rem;
@@ -193,4 +194,30 @@ export const DivModal = styled.div`
   background: rgb(157, 157, 250);
   border: 3px solid white;
   box-shadow: 1px 1px 0.5rem rgb(157, 157, 250);
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: animeLeft 0.3s forwards;
+
+  @keyframes animeLeft {
+    to {
+      opacity: initial;
+      transform: initial;
+    }
+  }
+
+  button {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    margin-left: 16rem;
+    margin-right: 16rem;
+    background: rgb(108, 108, 245);
+    font-weight: bolder;
+    border: 2px solid white;
+  }
+
+  button:hover {
+    background: rgb(60, 60, 243);
+  }
 `;
