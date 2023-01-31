@@ -185,17 +185,24 @@ export const PlayerField = styled.form`
   }
 `;
 
+export const FatherModal = styled.div`
+  position: fixed;
+  padding: 0.5rem;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #00000090;
+`;
+
 export const DivModal = styled.div`
   display: flex;
+  flex: 0 1 38rem;
   flex-direction: column;
   gap: 0.5rem;
-  position: absolute;
-  z-index: 1000;
-  top: 23rem;
-  left: 3rem;
-  right: 3rem;
-  max-width: 40rem;
-  margin: 0 auto;
   padding: 1.5rem;
   border-radius: 0.5rem;
   background: rgb(157, 157, 250) !important;
@@ -211,9 +218,7 @@ export const DivModal = styled.div`
       transform: initial;
     }
   }
-  @media (max-width: 40rem) {
-    left: 8.5rem;
-  }
+
   button {
     justify-content: center;
     align-self: center;

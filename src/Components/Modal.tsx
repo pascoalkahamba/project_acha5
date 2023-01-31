@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { DivModal } from "../MyStyles";
+import { DivModal, FatherModal } from "../MyStyles";
 import Button from "./Button";
 
 interface Props {
@@ -31,12 +31,14 @@ const Modal = ({
     navigate("/");
   };
   return (
-    <DivModal>
-      <h2>Temos um vencedor!</h2>
-      <p>{`Parabéns ${winningPlayer} você descobriu a palavra secreta do ${loserPlayer}`}</p>
-      <p>{`Pela próxima inventa uma palavra mas difícil  ${loserPlayer} parece que "${secretWord}" não é tão difícil.`}</p>
-      <Button buttonName="fechar" onClick={() => modalOut()} />
-    </DivModal>
+    <FatherModal>
+      <DivModal>
+        <h2>Temos um vencedor!</h2>
+        <p>{`Parabéns ${winningPlayer} você descobriu a palavra secreta do ${loserPlayer}`}</p>
+        <p>{`Pela próxima inventa uma palavra mas difícil  ${loserPlayer} parece que "${secretWord}" não é tão difícil.`}</p>
+        <Button buttonName="fechar" onClick={() => modalOut()} />
+      </DivModal>
+    </FatherModal>
   );
 };
 
