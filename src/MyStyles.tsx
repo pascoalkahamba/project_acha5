@@ -193,6 +193,7 @@ export const FatherModal = styled.div`
   right: 0;
   bottom: 0;
   display: flex;
+  z-index: 1000;
   justify-content: center;
   align-items: center;
   background: #00000090;
