@@ -126,9 +126,6 @@ export const SonDiv = styled.div<TestProps>`
         pointer-events: none;
         color: #797979;
       }
-      p {
-        display: block;
-      }
     `}
 
   ${({ background }) =>
