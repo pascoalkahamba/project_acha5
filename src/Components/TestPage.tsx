@@ -30,7 +30,6 @@ const TestPage = ({ value, setValue }: StateProps) => {
 
   const resultEnd = (error: boolean, ...args: string[]) => {
     setPlayerInformation(args);
-    console.log(args[0]);
     setResult(error);
   };
 

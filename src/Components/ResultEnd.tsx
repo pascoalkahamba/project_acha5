@@ -66,11 +66,9 @@ const ResultEnd = ({
 
   const handleChange: ChangeProps = ({ target }) => {
     setRightWord(target.value);
-    console.log("Hello");
   };
 
   const isSameWord = () => {
-    console.log("teste");
     if (rightWord.length < 5) {
       setWrongWord(false);
       setError(true);
